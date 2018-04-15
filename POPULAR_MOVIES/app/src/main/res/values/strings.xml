@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="most_popular">MOST POPULAR</string>
+    <string name="top_rated">TOP RATED</string>
+    <string name="movie_poster">movie poster</string>
+    <string name="rating">Rating:</string>
+</resources>
