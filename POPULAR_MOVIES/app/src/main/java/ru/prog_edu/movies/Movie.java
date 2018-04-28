@@ -6,6 +6,9 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.List;
 
+/*Здесь имплементировал Parcelable так как по скорости он значительно
+  превосходит Serializable при передаче объектов между Activity*/
+
 public class Movie implements Parcelable{
     private int voteCount;
     private int id;
@@ -36,12 +39,6 @@ public class Movie implements Parcelable{
         this.adult = source.readByte()!= 0;
         this.overview = source.readString();
         this.releaseDate = source.readString();
-
-
-
-
-
-
 
     }
 
@@ -96,9 +93,6 @@ public class Movie implements Parcelable{
         this.releaseDate = releaseDate;
     }
 
-
-
-
     @Override
     public int describeContents() {
         return 0;
@@ -120,14 +114,11 @@ public class Movie implements Parcelable{
         dest.writeByte((byte) (adult ? 1 : 0));
         dest.writeString(overview);
         dest.writeString(releaseDate);
-
-
     }
 
     public final static Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
         @Override
         public Movie createFromParcel(Parcel source) {
-
             return new Movie(source);
         }
 
@@ -136,5 +127,4 @@ public class Movie implements Parcelable{
             return new Movie[size];
         }
     };
-
 }

@@ -1,7 +1,5 @@
 package ru.prog_edu.movies.utilities;
 
-
-
 import android.net.Uri;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,12 +8,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
-
-
 public class NetworkUtils {
     private final static String MOVIES_BASE_URL = "https://api.themoviedb.org";
     private final static String PARAM_QUERY_API = "api_key";
-    private final static String API_KEY = " ";
+    private final static String API_KEY = "091eb633efcd8f2811530d725b717336";
 
     public static URL buildMovieUrl(String searchParameter){
         Uri movieUri = Uri.parse(MOVIES_BASE_URL).buildUpon()
@@ -31,7 +27,6 @@ public class NetworkUtils {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-
         return url;
     }
 
@@ -54,8 +49,4 @@ public class NetworkUtils {
             urlConnection.disconnect();
         }
     }
-
-
-
-
 }

@@ -18,7 +18,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,19 +26,22 @@ import java.net.URL;
 import java.util.ArrayList;
 import ru.prog_edu.movies.utilities.NetworkUtils;
 
+/* Проект реализован в рамках обучения на  Android Developer Nanodegree Programm (Udacity)
+   c учетом возможной отправки в школу мобильной разработки (Yandex).
+   Так как опыт в разработке небольшой, сознательно ушел от применения сторонних библиотек (Retrofit)
+   с целью освоения особенностей клиент-серверного взаимодействия (вначале использовал просто класс AsyncTask,
+   затем для предотвращения вызова повторных потоков при смене конфигурации применялся  AsyncTaskLoader. */
+
+
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String>, MoviesAdapter.OnSelectedItemListener{
 
     private static final String SEARCH_QUERY_URL_EXTRA = "query";
-
     private RecyclerView movieRecycler;
     private final static String POPULAR_MOVIES_PARAMETER = "popular";
     private final static String TOP_RATED_MOVIES_PARAMETER = "top_rated";
     private final static int ID_LOADER = 18;
-
     private ArrayList<Movie> movies;
-
     private final ArrayList<String> imagesList = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -188,20 +190,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 makeMoviesQuery(TOP_RATED_MOVIES_PARAMETER);
                 movieRecycler.setHasFixedSize(true);
                 movieRecycler.setLayoutManager(new GridLayoutManager(this, 2));
-
-
-
                 return true;
             case R.id.most_popular:
                 makeMoviesQuery(POPULAR_MOVIES_PARAMETER);
                 movieRecycler.setHasFixedSize(true);
                 movieRecycler.setLayoutManager(new GridLayoutManager(this, 2));
                 return true;
-
         }
         return super.onOptionsItemSelected(item);
     }
-
+    //метод для проверки соединения
     private boolean isOnline() {
         ConnectivityManager cm =
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -211,7 +209,4 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         return netInfo != null && netInfo.isConnectedOrConnecting();
     }
-
-
-
 }

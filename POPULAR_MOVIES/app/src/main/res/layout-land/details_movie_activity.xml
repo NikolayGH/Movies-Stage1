@@ -46,7 +46,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/movie_poster"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/util_textView"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -73,14 +73,14 @@
         android:layout_marginStart="8dp"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="@+id/util_textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintStart_toEndOf="@+id/util_textView"
+        app:layout_constraintTop_toTopOf="@+id/util_textView" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/util_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

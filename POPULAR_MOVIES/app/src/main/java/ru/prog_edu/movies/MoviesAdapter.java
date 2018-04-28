@@ -16,14 +16,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesHold
 
     private final ArrayList<Movie> movieItems;
 
-
     public interface OnSelectedItemListener{
         void onListItemClick(int selectedMovie);
     }
 
     private final OnSelectedItemListener mClickHandler;
-
-
 
     public MoviesAdapter(ArrayList<Movie> movieItems, OnSelectedItemListener mClickHandler) {
         this.movieItems = movieItems;
